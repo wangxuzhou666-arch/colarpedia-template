@@ -7,3 +7,4 @@ dev.log
 .env.local
 .DS_Store
 .claude/
+_drafts/
