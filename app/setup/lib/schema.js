@@ -17,7 +17,7 @@ export const setupSchema = z.object({
   bio: z.string().optional().or(z.literal("")),
 
   // Site
-  siteName: z.string().min(1, "Required").default("Colarpedia"),
+  siteName: z.string().min(1, "Required").default("Yourpedia"),
 
   // Meta
   metaBaseUrl: z

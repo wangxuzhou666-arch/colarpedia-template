@@ -25,7 +25,7 @@ export default function SetupForm() {
       homepageSlug: "",
       tagline: "",
       bio: "",
-      siteName: "Colarpedia",
+      siteName: "Yourpedia",
       metaBaseUrl: "",
       githubOwner: "",
       githubRepo: "",
@@ -77,7 +77,8 @@ export default function SetupForm() {
     setDone(false);
     try {
       const blob = await generateZip(data);
-      triggerDownload(blob, `colarpedia-${data.homepageSlug}.zip`);
+      const zipName = (data.siteName || "yourpedia").toLowerCase().replace(/[^a-z0-9]/g, "");
+      triggerDownload(blob, `${zipName}-${data.homepageSlug}.zip`);
       setDone(true);
     } catch (e) {
       alert("Generation failed: " + e.message);
@@ -162,11 +163,13 @@ export default function SetupForm() {
           <input
             {...register("siteName")}
             className="setup-input"
-            placeholder="Colarpedia"
+            placeholder="Yourpedia"
           />
           <div className="setup-help">
-            Shown in the top bar. You can keep "Colarpedia" or rename it
-            (e.g. "Doepedia").
+            Shown in the top bar of your site. The default is
+            &quot;Yourpedia&quot; &mdash; rename it to anything you
+            want (e.g. &quot;Janepedia&quot;, &quot;Doepedia&quot;,
+            &quot;MyWiki&quot;).
           </div>
           {errors.siteName && (
             <div className="setup-error">{errors.siteName.message}</div>
@@ -319,7 +322,7 @@ export default function SetupForm() {
         >
           {generating
             ? "Generating…"
-            : "Generate my Colarpedia (download zip)"}
+            : "Generate my wiki (download zip)"}
         </button>
         {done && (
           <div className="setup-success">

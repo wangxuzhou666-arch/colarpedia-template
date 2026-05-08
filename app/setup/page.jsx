@@ -1,9 +1,9 @@
 import SetupForm from "./components/SetupForm";
 
 export const metadata = {
-  title: "Set up your Colarpedia — 5 minutes",
+  title: "Yourpedia — set up your wiki in 5 minutes",
   description:
-    "Fill the form, download a zip, deploy a Wikipedia-styled personal résumé site in 5 minutes. No GitHub knowledge required.",
+    "Fill the form, download a zip, deploy a Wikipedia-styled personal résumé site in 5 minutes. Yourpedia is a free, open template — your wiki, your repo, your domain. No SaaS lock-in.",
 };
 
 export default function SetupPage() {
@@ -14,8 +14,8 @@ export default function SetupPage() {
       <div className="wiki-topbar">
         <div className="wiki-topbar-inner">
           <a href="/" className="wiki-logo">
-            Colarpedia
-            <span>/setup · the free résumé builder</span>
+            Yourpedia
+            <span>the free résumé wiki · build yours in 5 min</span>
           </a>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default function SetupPage() {
       </div>
 
       <main className="setup-shell">
-        <h1 className="wiki-title">Set up your Colarpedia</h1>
+        <h1 className="wiki-title">Set up your wiki</h1>
         <p className="wiki-title-sub">
           A Wikipedia-styled personal résumé, fork-and-deploy in five minutes.
         </p>
@@ -80,12 +80,12 @@ export default function SetupPage() {
 
       <footer className="wiki-footer">
         <p>
-          Colarpedia /setup is a fork-and-deploy tool. Your wiki, your
-          repo, your domain &mdash; nothing is locked to a SaaS.
+          Yourpedia is a fork-and-deploy tool. Your wiki, your repo,
+          your domain &mdash; nothing is locked to a SaaS.
         </p>
         <p>
           Text is available under the personal responsibility of its
-          author. Colarpedia is a stylistic tribute to Wikipedia and not
+          author. Yourpedia is a stylistic tribute to Wikipedia and not
           affiliated with the Wikimedia Foundation.
         </p>
       </footer>
