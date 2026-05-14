@@ -34,6 +34,12 @@
 
 * { box-sizing: border-box; }
 
+html {
+  /* iOS Safari 横竖屏切换时会把字号 boost，关掉以避免响应式断点之外的意外放大 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -43,6 +49,19 @@ html, body {
   font-size: 16px;
   line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
+  /* 防止长 URL / 英文专有名词 / GitHub repo 路径在窄屏撑出横向滚动条 */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* 媒体防溢出 — wiki 内容里可能有大图 / 嵌入 iframe / SVG */
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+}
+pre, code, .wiki-main pre {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 a {
@@ -426,6 +445,22 @@ ol.references li { margin-bottom: 4px; }
   }
   .wiki-title { font-size: 1.6em; }
   .wiki-main h2 { font-size: 1.35em; }
+}
+
+/* 真·手机断点 — iPhone/Android 竖屏 (≤480px)。
+   720px 档主要给 iPad 竖屏，手机需要更激进地收紧 padding 与字号，
+   否则两侧 24px 边距会吃掉 12% 屏宽。 */
+@media (max-width: 480px) {
+  .wiki-topbar-inner { padding: 8px 12px; gap: 12px; }
+  .wiki-logo { font-size: 19px; }
+  .wiki-logo span { font-size: 11px; }
+
+  .wiki-shell { padding: 12px 12px 40px; gap: 16px; }
+  .wiki-footer { padding: 16px 12px 32px; }
+
+  .wiki-title { font-size: 1.45em; }
+  .wiki-main h2 { font-size: 1.25em; }
+  .wiki-main h3 { font-size: 1.1em; }
 }
 
 /* ===== /setup form (Wikipedia-faithful) =====
